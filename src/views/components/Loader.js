@@ -21,9 +21,10 @@ const Loader = ({visible = false}) => {
 const styles = StyleSheet.create({
     container: {
           position: 'absolute',
-          elevation: 10,
+          zIndex: 10,
           backgroundColor: 'rgba(0,0,0,0.5)' ,
           justifyContent: 'center',
+          
           
     },
     loader: {
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
        borderRadius:5,
        flexDirection: 'row',
        alignItems:'center',
-       paddingHorizontal: 20
+       paddingHorizontal: 20,
+       position: 'absolute'
     }
 })
 

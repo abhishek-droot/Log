@@ -24,28 +24,32 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './src/views/screens/LoginScreen';
 import HomeScreen from './src/views/screens/HomeSceen';
+import OnBoardScreen from './src/views/screens/OnBoardScreen';
 import { StackActions } from 'react-navigation';
+import RadioButton from './src/views/components/RadioButton';
+import Slider from './src/views/components/Slider';
+import SearchScreen from './src/views/screens/SearchScreen';
 
-// const Stack = createNativeStackNavigator();
+
+
+ const Stack = createNativeStackNavigator();
 
 const App = () => {
  
   return (
-      <View style={{backgroundColor:'white',flex:1}}>
-          {/* <NavigationContainer>
+   
+          <NavigationContainer>
               <Stack.Navigator screenOptions={{headershown: false}}>
-                <Stack.Screen 
-                  name="RegistrationScreen"
-                  component={RegistrationScreen}
-                  />
-                  {/* <Stack.Screen name="LoginScreen" component={LoginScreen} />
-                  <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-                {/* </Stack.Navigator> 
-          </NavigationContainer> */}
-            <RegistrationScreen />
-          </View>    
-      
-  )
+                  <Stack.Screen name="OnBoardScreen" component={OnBoardScreen} />
+                  <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
+                  <Stack.Screen name="LoginScreen" component={LoginScreen} />
+                  <Stack.Screen name="SearchScreen" component={SearchScreen} />
+                  <Stack.Screen name="HomeScreen" component={HomeScreen} /> 
+                 </Stack.Navigator> 
+          </NavigationContainer>
+        
+          
+      )
 };
 
 

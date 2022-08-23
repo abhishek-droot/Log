@@ -18,49 +18,61 @@ const LoginScreen = ({navigation}) => {
    const [errors, setErrors] = useState({});
    const [loading , setLoading] = useState(false);
 
+  
+ 
+
+
    const validate = () => {
         Keyboard.dismiss();
         let valid = true;
         if (!inputs.email) {
              handleError("Please Input email",'email');
-             valid = false;
+            
         } else if(!inputs.email.match(/\S+@\S+\.\S+/)){
             handleError('Please input valid Email','email');
         }
+    
+       
+        
 
-        if (!inputs.fullname) {
-            handleError('Please input fullname','fullname');
-        } 
-        if (!inputs.phone) {
-            handleError('Please input Phone Number','phone');
-        } 
         if (!inputs.password) {
+          
             handleError('Please Input Password','password');
+         
         }else if(inputs.password.length < 5) {
             handleError('Min Password Length of 5','password');
         }
 
         if(valid) {
-            register();
+            login();
         }
 
    };
 
 
-   const register = () => {
+   const login = () => {
          setLoading(true);
-         setTimeout(() => {
+         setTimeout(async() => {
             setLoading(false);
+            let userData = await AsyncStorage.getItem('user');
+            if(userData){
+              userData = JSON.parse(userData);
+              if(inputs.email == userData.email && inputs.password == userData.password){
+                
+                 AsyncStorage.setItem("user",JSON.stringify({...userData , loggedIn: true}),);
+                AsyncStorage.getItem("user").then(JSON.parse).then(value => {
+                  console.log(value); 
+                 
+                });
+                navigation.navigate("SearchScreen");
+              }else{
+                Alert.alert('Error', 'Invalid Details');
 
-            try{ 
-                AsyncStorage.setItem("user", JSON.stringify(inputs));
-                navigation.navigate("LoginScreen");
-             
-            } catch (error) {
-             Alert.alert("Error","Something went wrong");
+              }
+            }else{
+                Alert.alert('Error', 'User does not Exist');
             }
-
-         }, 3000);
+         }, 3000)
    };
    
 
@@ -76,14 +88,14 @@ const LoginScreen = ({navigation}) => {
    };
 
     return (
-    <SafeAreaView style={{backgroundColor: COLORS.white}}> 
+    <SafeAreaView style={{backgroundColor:'white',flex: 1}}> 
            <Loader visible={loading}/>
              <ScrollView contentContainerStyle={{paddingTop: 50 , paddingHorizontal: 20,}}>
                  <Text style={{color:'black' , fontSize: 40, fontWeight: 'bold'}}>
-                    Register
+                    LogIn
                     </Text>
                     <Text style={{color:'black' , fontSize: 18, marginVertical: 10}}>
-                       Enter your Details
+                       Enter your Details to Login
                     </Text>
                     <View style={{marginVertical: 20}}>
                         <Input 
@@ -95,25 +107,7 @@ const LoginScreen = ({navigation}) => {
                         }}
                         onChangeText ={(text)=>handleOnChange(text,'email')}
                        />
-                       <Input 
-                        placeholder="Enter your Full Name" 
-                        label="Full Name" 
-                        error={errors.fullname}
-                        onFocus={()=>{
-                            handleError(null,'fullname')
-                        }}
-                        onChangeText ={(text)=>handleOnChange(text,'fullname')}
-                       />
-                       <Input 
-                       keyboardType="numeric"
-                        placeholder="Enter your Phone Number" 
-                        label="Phone Number" 
-                        error={errors.phone}
-                        onFocus={()=>{
-                            handleError(null,'phone')
-                        }}
-                        onChangeText ={(text)=>handleOnChange(text,'phone')}
-                       />
+                       
                         <Input 
                         placeholder="Enter your Email Password" 
                         label="Password" 
@@ -125,8 +119,10 @@ const LoginScreen = ({navigation}) => {
                         password
                         
                        />
-                       <Button title="Register" onPress={validate}/>
-                       <Text style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Already have account ? LogIn</Text>
+                       <Button title="LogIn" onPress={validate}/>
+                       <Text 
+                       
+                       style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Don't a have account ? Register</Text>
                     </View>
                 </ScrollView>  
        
