@@ -4,6 +4,7 @@ import Button from '../components/Button';
 
 const OnBoardScreen = ({ navigation }) => {
     return (
+      <>
       <View style={styles.container}>
       <Button
         title="ORG 1"
@@ -17,7 +18,15 @@ const OnBoardScreen = ({ navigation }) => {
           navigation.navigate('RegistrationScreen', { name: 'RegistrationScreen' })
         }
       />
-      </View>
+    
+       </View>
+       <View style={{  justifyContent:'space-evenly', flexDirection:'row', position: "absolute", bottom: 0}}>
+       
+       <Button title="SCAN QR" />
+       <Button title="SEARCH " />
+       
+       </View>
+       </> 
     );
   };
 

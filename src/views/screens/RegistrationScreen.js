@@ -95,7 +95,7 @@ const RegistrationScreen = ({navigation}) => {
 
             try{ 
               AsyncStorage.setItem("user", JSON.stringify(inputs));
-              navigation.navigate("LoginScreen");
+              navigation.navigate("SearchScreen");
             } catch (error) {
              Alert.alert("Error","Something went wrong");
             }
@@ -117,7 +117,9 @@ const RegistrationScreen = ({navigation}) => {
 
     return (
     <SafeAreaView style={{backgroundColor:'white' , flex: 1}}> 
+           <View style={{position:'absolute',alignItems:'center',justifyContent:'center',zIndex:30,top:'30%',left:'20%'}}>
            <Loader visible={loading}/>
+           </View>
              <ScrollView contentContainerStyle={{paddingTop: 50 , paddingHorizontal: 20,}}>
                  <Text style={{color:'black' , fontSize: 40, fontWeight: 'bold'}}>
                     Register
@@ -136,7 +138,7 @@ const RegistrationScreen = ({navigation}) => {
                         }}
                         onChangeText ={(text)=>handleOnChange(text,'fullname')}
                        />
-                       <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                       <View style={{flexDirection:'row', justifyContent:'space-between' ,paddingBottom:20}}>
                         <View>
                         <Text style={{color:'black',paddingBottom:10}}>Property Type</Text>
                         <RadioButton PROP={PROP} />
@@ -146,7 +148,9 @@ const RegistrationScreen = ({navigation}) => {
                         <RadioButton PROP={DATAS} />
                         </View>
                        </View>
+                       <View style={{top:10}}>
                         <Slider />
+                        </View>
                           <Input 
                        keyboardType="numeric"
                         placeholder="Enter your Phone Number" 
@@ -192,7 +196,9 @@ const RegistrationScreen = ({navigation}) => {
                         
                        />
                        <Button title="Register" onPress={validate}/>
-                       <Text style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Already have account ? LogIn</Text>
+                       <Text 
+                       onPress={() => navigation.navigate("LoginScreen")}
+                       style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Already have account ? LogIn</Text>
                     </View>
                 </ScrollView>  
        

@@ -4,7 +4,7 @@
 // import React in our code
 import React, {useState, useEffect} from 'react';
 import Button from '../components/Button';
-import HomeScreen from './HomeSceen';
+
 // import all the components we are going to use
 import {
   SafeAreaView,
@@ -14,7 +14,23 @@ import {
   FlatList,
   TextInput,
 } from 'react-native';
- 
+import RadioButton from '../components/RadioButton'; 
+
+const PROP = [
+	{
+		key: 'Company Name',
+		text: 'Company Name',
+	},
+	{
+		key: 'Plot Number',
+		text: 'Plot Number',
+	},
+  {
+    key: 'Name of concerned-Person',
+    text: 'Name of concerned Person'
+  }
+]
+
 const SearchScreen = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [filteredDataSource, setFilteredDataSource] = useState([]);
@@ -99,6 +115,9 @@ const SearchScreen = ({navigation}) => {
           underlineColorAndroid="transparent"
           placeholder="Search Here"
         />
+        <View style={{paddingTop:20}}>
+        <RadioButton PROP={PROP} />
+        </View>
         <View style={{paddingLeft:20,paddingRight:20}}>
         <Button
         title="Select"

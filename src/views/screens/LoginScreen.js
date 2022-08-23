@@ -121,7 +121,7 @@ const LoginScreen = ({navigation}) => {
                        />
                        <Button title="LogIn" onPress={validate}/>
                        <Text 
-                       
+                        onPress={() => navigation.navigate("RegistrationScreen")}
                        style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Don't a have account ? Register</Text>
                     </View>
                 </ScrollView>  

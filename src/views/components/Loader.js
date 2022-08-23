@@ -20,6 +20,7 @@ const Loader = ({visible = false}) => {
 
 const styles = StyleSheet.create({
     container: {
+          top:20,
           position: 'absolute',
           zIndex: 10,
           backgroundColor: 'rgba(0,0,0,0.5)' ,

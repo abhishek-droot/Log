@@ -8,7 +8,7 @@ const Button = ({title, onPress = () => {}}) => {
           style={{height: 55, width: '100%', backgroundColor: 'black',justifyContent:'center' , alignItems: 'center',marginVertical: 20}}>
             <Text 
             onPress={() => navigation.navigate('LoginScreen')}
-            style={{color: 'white', fontWeight:'bold',fontSize: 18,}}>
+            style={{color: 'white', fontWeight:'bold',fontSize: 18, textAlign: 'center'}}>
                {title}
             </Text>
           </TouchableOpacity>

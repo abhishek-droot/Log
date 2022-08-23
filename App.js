@@ -32,7 +32,9 @@ import SearchScreen from './src/views/screens/SearchScreen';
 
 
 
- const Stack = createNativeStackNavigator();
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
  
@@ -47,7 +49,7 @@ const App = () => {
                   <Stack.Screen name="HomeScreen" component={HomeScreen} /> 
                  </Stack.Navigator> 
           </NavigationContainer>
-        
+         
           
       )
 };

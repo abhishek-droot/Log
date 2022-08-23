@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 export default class RadioButton extends Component {
@@ -6,7 +7,7 @@ export default class RadioButton extends Component {
 	};
 	render() {
 		const { PROP } = this.props;
-		const { value } = this.state;
+		const { value } = this.state; 
 		return (
 			<View>
 				{PROP.map(res => {
