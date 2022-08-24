@@ -9,7 +9,7 @@ export default class RadioButton extends Component {
 		const { PROP } = this.props;
 		const { value } = this.state; 
 		return (
-			<View>
+			<View style={{flex:1 , flexDirection:'row', justifyContent:'flex-start'}}>
 				{PROP.map(res => {
 					return (
 					
@@ -24,7 +24,7 @@ export default class RadioButton extends Component {
                                   {value === res.key && <View style={styles.selectedRb} />}
 							</TouchableOpacity>
 							<TouchableOpacity onPress={() => {
-				                this.setState({
+									this.setState({
 										value: res.key,
 									});
 								}}><Text style={styles.radioText}>{res.text}</Text></TouchableOpacity>
@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
 		justifyContent: 'flex-start',
-		paddingLeft:20
 	},
     radioText: {
         marginLeft: 20,
         fontSize: 14,
         color: '#000',
-        fontWeight: '700'
+        fontWeight: '700',
+		marginRight: 50
     },
 	radioCircle: {
 		height: 20,
@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
 		borderColor: '#000',
 		alignItems: 'center',
 		justifyContent: 'center',
-		
 	},
 	selectedRb: {
 		width: 10,

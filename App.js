@@ -42,15 +42,17 @@ const App = () => {
    
           <NavigationContainer>
               <Stack.Navigator screenOptions={{headershown: false}}>
-                  <Stack.Screen name="OnBoardScreen" component={OnBoardScreen} />
-                  <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
+                  <Stack.Screen name="OnBoardScreen" component={OnBoardScreen}  options={{headerShown: false}}/>
+                  <Stack.Screen name="Registration" component={RegistrationScreen} />
                   <Stack.Screen name="LoginScreen" component={LoginScreen} />
-                  <Stack.Screen name="SearchScreen" component={SearchScreen} />
+                  <Stack.Screen name="Search" component={SearchScreen} />
                   <Stack.Screen name="HomeScreen" component={HomeScreen} /> 
                  </Stack.Navigator> 
           </NavigationContainer>
+        
          
-          
+         
+                
       )
 };
 

@@ -9,21 +9,21 @@ const OnBoardScreen = ({ navigation }) => {
       <Button
         title="ORG 1"
         onPress={() =>
-          navigation.navigate('RegistrationScreen', { name: 'RegistrationScreen' })
+          navigation.navigate('Registration', { name: 'Registrationcreen' })
         }
       />
       <Button
         title="ORG 2"
         onPress={() =>
-          navigation.navigate('RegistrationScreen', { name: 'RegistrationScreen' })
+          navigation.navigate('Registration', { name: 'RegistrationScreen' })
         }
       />
     
        </View>
-       <View style={{  justifyContent:'space-evenly', flexDirection:'row', position: "absolute", bottom: 0}}>
+       <View style={{ flexDirection:'row',justifyContent:'space-evenly' }}>
        
-       <Button title="SCAN QR" />
-       <Button title="SEARCH " />
+        <Button title="SCAN QR"  onPress={() => navigation.navigate('Search')}/>
+        <Button title="SEARCH " onPress={() => navigation.navigate('Search')} />
        
        </View>
        </> 
@@ -32,6 +32,7 @@ const OnBoardScreen = ({ navigation }) => {
 
   const styles = StyleSheet.create({
       container: {
+       
         backgroundColor:'white',
         flex: 1,
         alignItems:'center',

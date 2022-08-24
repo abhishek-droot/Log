@@ -5,7 +5,7 @@ import COLORS from '../../consts/color';
 import Input from '../components/input';
 import Button from '../components/Button';
 import Loader from '../components/Loader';
-import RadioButton from '../components/RadioButton';
+import Radio from '../components/Radio';
 import Slider from '../components/Slider';
 
 const PROP = [
@@ -95,7 +95,7 @@ const RegistrationScreen = ({navigation}) => {
 
             try{ 
               AsyncStorage.setItem("user", JSON.stringify(inputs));
-              navigation.navigate("SearchScreen");
+              navigation.navigate("Search");
             } catch (error) {
              Alert.alert("Error","Something went wrong");
             }
@@ -138,14 +138,14 @@ const RegistrationScreen = ({navigation}) => {
                         }}
                         onChangeText ={(text)=>handleOnChange(text,'fullname')}
                        />
-                       <View style={{flexDirection:'row', justifyContent:'space-between' ,paddingBottom:20}}>
+                       <View style={{flexDirection:'column', justifyContent:'space-between' ,paddingBottom:20}}>
                         <View>
                         <Text style={{color:'black',paddingBottom:10}}>Property Type</Text>
-                        <RadioButton PROP={PROP} />
+                        <Radio PROP={PROP} />
                         </View>
                         <View style={{paddingTop: 10}}>
                         <Text style={{color:'black',paddingBottom:10}}>MemberShip Type</Text>
-                        <RadioButton PROP={DATAS} />
+                        <Radio PROP={DATAS} />
                         </View>
                        </View>
                        <View style={{top:10}}>
@@ -198,7 +198,7 @@ const RegistrationScreen = ({navigation}) => {
                        <Button title="Register" onPress={validate}/>
                        <Text 
                        onPress={() => navigation.navigate("LoginScreen")}
-                       style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Already have account ? LogIn</Text>
+                       style={{color: 'black' , textAlign: 'center', fontSize: 16}}> Powered By Droot</Text>
                     </View>
                 </ScrollView>  
        

@@ -75,9 +75,11 @@ const SearchScreen = ({navigation}) => {
   const ItemView = ({item}) => {
     return (
       // Flat List Item
-      <Text
+      <Text 
+        onPress={() => navigation.navigate('HomeScreen')}
         style={styles.itemStyle}
-        onPress={() => getItem(item)}>
+        // onPress={() => getItem(item)}
+        >
         {item.id}
         {'.'}
         {item.title.toUpperCase()}
@@ -131,6 +133,7 @@ const SearchScreen = ({navigation}) => {
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={ItemSeparatorView}
           renderItem={ItemView}
+       
         />
       </View>
     </SafeAreaView>
@@ -143,7 +146,9 @@ const styles = StyleSheet.create({
   },
   itemStyle: {
     padding: 10,
-    color:'black'
+    color:'black',
+    paddingLeft:20,
+    paddingRight:20
 
   },
   textInputStyle: {
