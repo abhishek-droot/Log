@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet , Text , View , SafeAreaView} from 'react-native';
 import Button from '../components/Button';
+import Buttons from '../components/Buttons';
 
 const OnBoardScreen = ({ navigation }) => {
     return (
@@ -20,10 +21,10 @@ const OnBoardScreen = ({ navigation }) => {
       />
     
        </View>
-       <View style={{justifyContent:'space-evenly', flexDirection:'row' }}>
+       <View style={{justifyContent:'space-evenly', flexDirection:'row' ,backgroundColor:'white' }}>
        
-        <Button title="SCAN QR"  onPress={() => navigation.navigate('Search')}/>
-        <Button title="SEARCH " onPress={() => navigation.navigate('Search')} />
+          <Buttons title="SCAN QR"  onPress={() => navigation.navigate('Search')}/>
+          <Buttons title="SEARCH " onPress={() => navigation.navigate('Search')} />
        
        </View>
        </> 
@@ -34,7 +35,7 @@ const OnBoardScreen = ({ navigation }) => {
       container: {
        
         backgroundColor:'white',
-        flex: 1,
+        flex:1,
         alignItems:'center',
         justifyContent:'center',
         paddingLeft: 20,

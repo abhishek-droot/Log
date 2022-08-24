@@ -95,6 +95,10 @@ const RegistrationScreen = ({navigation}) => {
 
             try{ 
               AsyncStorage.setItem("user", JSON.stringify(inputs));
+              AsyncStorage.getItem("user").then(JSON.parse).then(value => {
+                console.log(value); 
+               
+              });
               navigation.navigate("Search");
             } catch (error) {
              Alert.alert("Error","Something went wrong");
