@@ -20,7 +20,7 @@ const OnBoardScreen = ({ navigation }) => {
       />
     
        </View>
-       <View style={{ flexDirection:'row',justifyContent:'space-evenly' }}>
+       <View style={{justifyContent:'space-evenly', flexDirection:'row' }}>
        
         <Button title="SCAN QR"  onPress={() => navigation.navigate('Search')}/>
         <Button title="SEARCH " onPress={() => navigation.navigate('Search')} />
